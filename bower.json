@@ -1,0 +1,27 @@
+{
+  "name": "aqua",
+  "description": "Aquagream website",
+  "main": "gulpfile.js",
+  "authors": [
+    "Alex Ostrovskij"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "pagePiling.js": "pagepiling.js#^1.5.4",
+    "bootstrap": "^3.3.7",
+    "isotope": "^3.0.2",
+    "materialize": "^0.98.0",
+    "vide": "^0.5.1",
+    "font-awesome": "^4.7.0",
+    "aos": "^2.1.1"
+  }
+}
