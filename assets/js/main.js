@@ -1,3 +1,8 @@
+$(window).on('load', function() {
+    $('#preloader').fadeOut('slow', function() {
+        $(this).remove();
+    });
+});
 $(document).ready(function() {
     $('#pagepiling').pagepiling({
         direction: 'horisontal',
@@ -30,7 +35,7 @@ $(document).ready(function() {
     });
     $('.section1').vide({
         mp4: '../assets/bg.mp4',
-        poster: '../assets/img/face.jpg'
+        poster: '../assets/img/vid.gif'
     }, {
         volume: 1,
         playbackRate: 1,

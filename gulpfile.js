@@ -18,7 +18,7 @@ var gulp = require('gulp'),
     es = require('event-stream'),
     concat = require("gulp-concat");
 
-    var path = {
+var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
         js: 'build/assets/js/',
@@ -28,7 +28,7 @@ var gulp = require('gulp'),
     },
     src: { //Пути откуда брать исходники
         html: 'html/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-        js: 'assets/js/main.js',//В и скриптах нам понадобятся только main файлы
+        js: 'assets/js/main.js', //В и скриптах нам понадобятся только main файлы
         style: 'assets/scss/*.scss',
         img: 'assets/img/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: 'assets/fonts/**/*.*'
@@ -40,7 +40,8 @@ var gulp = require('gulp'),
         img: 'assets/img/**/*.*',
         fonts: 'assets/fonts/**/*.*'
     },
-    clean: './build'
+    clean: './build',
+    clean2: './assets/plugins'
 };
 var config = {
     server: {
@@ -51,66 +52,89 @@ var config = {
     port: 4000,
     logPrefix: "Creancy-logs"
 };
-gulp.task('html:build', function () {
+gulp.task('html:build', function() {
     gulp.src(path.src.html) //Выберем файлы по нужному пути
         .pipe(rigger()) //Прогоним через rigger
         .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку dist
-        .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+        .pipe(reload({
+            stream: true
+        })); //И перезагрузим наш сервер для обновлений
 });
-gulp.task('js:build', function () {
+gulp.task('js:build', function() {
     gulp.src(path.src.js) //Найдем наш ds-scripts файл
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
         .pipe(uglify()) //Сожмем наш js
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в dist
-        .pipe(reload({stream: true})); //И перезагрузим сервер
+        .pipe(reload({
+            stream: true
+        })); //И перезагрузим сервер
 });
-gulp.task('style:build', function () {
-  gulp.src(path.src.style) //Выберем наш template.scss
+gulp.task('style:build', function() {
+    gulp.src(path.src.style) //Выберем наш template.scss
         .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(sass()) //Скомпилируем
         .pipe(prefixer()) //Добавим вендорные префиксы
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) //И в build
         .pipe(gulp.dest('./assets/css/'))
-        .pipe(reload({stream: true}));
+        .pipe(reload({
+            stream: true
+        }));
 });
-gulp.task('image:build', function () {
+gulp.task('image:build', function() {
     gulp.src(path.src.img) //Выберем наши картинки
         .pipe(imagemin({ //Сожмем их
             progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
             use: [pngquant()],
             interlaced: true
         }))
         .pipe(gulp.dest(path.build.img)) //И бросим в build
-        .pipe(reload({stream: true}));
+        .pipe(reload({
+            stream: true
+        }));
 });
 gulp.task('bower:prepare', function() {
-  return bower()
-    .pipe(gulp.dest('./assets/plugins/'));
+    return bower()
+        .pipe(gulp.dest('./assets/plugins/'));
 });
 
-gulp.task('bower:dest',['bower:prepare'], function(){
-  return bower()
-    .pipe(gulp.dest('./build/assets/plugins'));
+gulp.task('bower:dest', ['bower:prepare'], function() {
+    return bower()
+        .pipe(gulp.dest('./build/assets/plugins'));
 });
-gulp.task('bower:build',['style:build'], function() {
-  gulp.src('./html/*.html')
-    .pipe(inject(gulp.src(bowerFiles({
-      paths: {
-                    bowerDirectory: 'assets/plugins/'
-                }}
-              ), {read: false}), {name: 'bower', relative: true}))
-    .pipe(inject(gulp.src('assets/js/*.js', {read: false}), {relative: true}))
-    .pipe(inject(gulp.src('assets/css/*.css', {read: false}), {relative: true}))
-    .pipe(gulp.dest('./build/'));
+gulp.task('bower:build', ['style:build'], function() {
+    gulp.src('./html/*.html')
+        .pipe(inject(gulp.src(bowerFiles({
+            paths: {
+                bowerDirectory: 'assets/plugins/'
+            }
+        }), {
+            read: false
+        }), {
+            name: 'bower',
+            relative: true
+        }))
+        .pipe(inject(gulp.src('assets/js/*.js', {
+            read: false
+        }), {
+            relative: true
+        }))
+        .pipe(inject(gulp.src('assets/css/*.css', {
+            read: false
+        }), {
+            relative: true
+        }))
+        .pipe(gulp.dest('./build/'));
 });
 gulp.task('fonts:build', function() {
     gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
 });
-gulp.task('watch', function(){
+gulp.task('watch', function() {
     watch([path.watch.html], function(event, cb) {
         gulp.start(['html:build', 'bower:build']);
     });
@@ -130,11 +154,12 @@ gulp.task('watch', function(){
         gulp.start('fonts:build');
     });
 });
-gulp.task('webserver', function () {
+gulp.task('webserver', function() {
     browserSync(config);
 });
-gulp.task('clean', function (cb) {
+gulp.task('clean', function(cb) {
     rimraf(path.clean, cb);
+    rimraf(path.clean2, cb);
 });
 gulp.task('build', [
     'html:build',

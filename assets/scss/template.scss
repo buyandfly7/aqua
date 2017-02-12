@@ -1,100 +1,85 @@
-.section4{
-background: url('../img/face.jpg');
+.section4 {
+  background: url("../img/face.jpg");
   background-size: cover;
 }
-.section2{
-  background: url('../img/woman-red.jpg');
+
+.section2 {
+  background: url("../img/woman-red.jpg");
   background-size: cover;
 }
-.section3{
-  background: url('../img/paints.jpg');
+
+.section3 {
+  background: url("../img/paints.jpg");
   background-size: cover;
 }
-.center{
+
+.center {
   text-align: center;
 }
-.white-text{
+
+.white-text {
   color: white;
 }
-.section{
+
+.section {
   padding-top: 0;
   padding-bottom: 0;
   overflow: hidden;
   width: 100%;
 }
-.nav-wrapper{
+
+.js div#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff url("../img/pre.gif") no-repeat center center;
+}
+
+.nav-wrapper {
   z-index: 2;
 }
-.mauto{
+
+.mauto {
   margin: 0 auto;
 }
-#toast-container{
+
+#toast-container {
   top: 6%;
   right: auto;
   left: 0;
-    opacity: 0.8;
-  .toast{
+  opacity: 0.8;
+
+  .toast {
     float: left;
     text-align: left;
     background: #2196F3;
   }
 }
 
-small.brand-logo{
-font-size: 12px!important;
-top: 30%;
+small.brand-logo {
+  font-size: 12px !important;
+  top: 30%;
 }
-.overlay{
+
+.overlay {
   height: 100%;
   width: 100%;
   top: 0;
   background: rgba(0, 0, 0, 0.7);
   position: absolute;
 }
-.valign-wrapper{
+
+.valign-wrapper {
   height: 100%;
 }
-.logo{
+
+.logo {
   text-decoration: none;
-  text-shadow: rgb(30, 109, 179) 0px 0px 0px,
-  rgb(30, 110, 180) 1px 1px 0px,
-  rgb(31, 112, 182) 2px 2px 0px,
-  rgb(31, 113, 184) 3px 3px 0px,
-  rgb(31, 114, 186) 4px 4px 0px,
-  rgb(32, 115, 188) 5px 5px 0px,
-  rgb(32, 116, 190) 6px 6px 0px,
-  rgb(32, 118, 192) 7px 7px 0px,
-  rgb(33, 119, 194) 8px 8px 0px,
-  rgb(33, 120, 196) 9px 9px 0px,
-  rgb(33, 121, 198) 10px 10px 0px,
-  rgb(34, 122, 200) 11px 11px 0px,
-  rgb(34, 124, 202) 12px 12px 0px,
-  rgb(34, 125, 204) 13px 13px 0px,
-  rgb(35, 126, 206) 14px 14px 0px,
-  rgb(35, 127, 208) 15px 15px 0px,
-  rgb(35, 128, 210) 16px 16px 0px,
-  rgb(36, 130, 212) 17px 17px 0px,
-  rgb(36, 131, 214) 18px 18px 0px,
-  rgb(36, 132, 216) 19px 19px 0px,
-  rgb(37, 133, 218) 20px 20px 0px,
-  rgb(37, 134, 220) 21px 21px 0px,
-  rgb(37, 136, 222) 22px 22px 0px,
-  rgb(38, 137, 224) 23px 23px 0px,
-  rgb(38, 138, 226) 24px 24px 0px,
-  rgb(38, 139, 228) 25px 25px 0px,
-  rgb(39, 140, 230) 26px 26px 0px,
-  rgb(39, 142, 231) 27px 27px 0px,
-  rgb(39, 143, 233) 28px 28px 0px,
-  rgb(40, 144, 235) 29px 29px 0px,
-  rgb(40, 145, 237) 30px 30px 0px,
-  rgb(40, 146, 239) 31px 31px 0px,
-  rgb(41, 148, 241) 32px 32px 0px,
-  rgb(41, 149, 243) 33px 33px 0px,
-  rgb(41, 150, 245) 34px 34px 0px,
-  rgb(42, 151, 247) 35px 35px 0px,
-  rgb(42, 152, 249) 36px 36px 0px,
-  rgb(42, 154, 251) 37px 37px 0px,
-  rgb(43, 155, 253) 38px 38px 0px;
+  text-shadow: rgb(30, 109, 179) 0px 0px 0px, rgb(30, 110, 180) 1px 1px 0px, rgb(31, 112, 182) 2px 2px 0px, rgb(31, 113, 184) 3px 3px 0px, rgb(31, 114, 186) 4px 4px 0px, rgb(32, 115, 188) 5px 5px 0px, rgb(32, 116, 190) 6px 6px 0px, rgb(32, 118, 192) 7px 7px 0px, rgb(33, 119, 194) 8px 8px 0px, rgb(33, 120, 196) 9px 9px 0px, rgb(33, 121, 198) 10px 10px 0px, rgb(34, 122, 200) 11px 11px 0px, rgb(34, 124, 202) 12px 12px 0px, rgb(34, 125, 204) 13px 13px 0px, rgb(35, 126, 206) 14px 14px 0px, rgb(35, 127, 208) 15px 15px 0px, rgb(35, 128, 210) 16px 16px 0px, rgb(36, 130, 212) 17px 17px 0px, rgb(36, 131, 214) 18px 18px 0px, rgb(36, 132, 216) 19px 19px 0px, rgb(37, 133, 218) 20px 20px 0px, rgb(37, 134, 220) 21px 21px 0px, rgb(37, 136, 222) 22px 22px 0px, rgb(38, 137, 224) 23px 23px 0px, rgb(38, 138, 226) 24px 24px 0px, rgb(38, 139, 228) 25px 25px 0px, rgb(39, 140, 230) 26px 26px 0px, rgb(39, 142, 231) 27px 27px 0px, rgb(39, 143, 233) 28px 28px 0px, rgb(40, 144, 235) 29px 29px 0px, rgb(40, 145, 237) 30px 30px 0px, rgb(40, 146, 239) 31px 31px 0px, rgb(41, 148, 241) 32px 32px 0px, rgb(41, 149, 243) 33px 33px 0px, rgb(41, 150, 245) 34px 34px 0px, rgb(42, 151, 247) 35px 35px 0px, rgb(42, 152, 249) 36px 36px 0px, rgb(42, 154, 251) 37px 37px 0px, rgb(43, 155, 253) 38px 38px 0px;
   font-size: 81px;
   color: rgb(255, 255, 255);
   height: 261px;
@@ -104,13 +89,18 @@ top: 30%;
   text-align: center;
   background-color: rgb(43, 156, 255);
 }
-h1{
+
+h1 {
   font-size: 72px;
 }
+
 /* fluid 5 columns */
 .grid-sizer,
-.grid-item { width: 25%; }
+.grid-item {
+  width: 25%;
+}
+
 /* 2 columns wide */
-.grid{
+.grid {
   height: 100%;
 }
