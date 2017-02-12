@@ -19,6 +19,8 @@ background: url('../img/face.jpg');
 .section{
   padding-top: 0;
   padding-bottom: 0;
+  overflow: hidden;
+  width: 100%;
 }
 .nav-wrapper{
   z-index: 2;
